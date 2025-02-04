@@ -1,5 +1,13 @@
 import React from 'react';
 import {animate, motion} from "framer-motion";
+import {Roboto} from "next/font/google";
+
+const roboto = Roboto({
+    subsets: ["latin"],
+    style: ['normal', 'italic'],
+    weight:'400',
+    display:'swap'
+  })
 
 const quote = {
     initial:{
@@ -16,7 +24,7 @@ const quote = {
 const AnimatedText = ({text,className=""}) => {
   return (
     <div className='w-full mx-auto py-2 flex items-center justify-center text-center overflow-hidden'>
-        <motion.h1 className={`inline-block w-full text-black font-bold capitalize ${className}`} 
+        <motion.h1 className={`inline-block w-full text-black font-bold capitalize font-yant ${roboto.className} ${className}`} 
             variants={quote}
             initial="initial"
             animate="animate">
