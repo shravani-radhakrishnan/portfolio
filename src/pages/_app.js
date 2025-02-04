@@ -8,6 +8,7 @@ const montserrat = Montserrat({
   variable: "--font-mont",
 })
 
+
 export default function App({ Component, pageProps }) {
   return (
     <>
@@ -15,7 +16,7 @@ export default function App({ Component, pageProps }) {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
         </Head>
-        <main className={`${montserrat.variable} font-mont w-full min-h-screen`}>
+        <main className={`${montserrat.variable} font-mont w-full min-h-screen bg-tertiary`}>
           <NavBar/>
           <Component {...pageProps} />
         </main>
