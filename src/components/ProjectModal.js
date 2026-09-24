@@ -1,8 +1,15 @@
 import React from 'react';
+import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, ExternalLink, Github, CheckCircle2, Layers } from 'lucide-react';
 
 const ProjectModal = ({ project, onClose }) => {
+  const [imageBroken, setImageBroken] = React.useState(false);
+
+  React.useEffect(() => {
+    setImageBroken(false);
+  }, [project]);
+
   if (!project) return null;
 
   return (
@@ -15,18 +22,32 @@ const ProjectModal = ({ project, onClose }) => {
           className="relative w-full max-w-3xl bg-white dark:bg-zinc-900 border border-gray-200 dark:border-zinc-800 rounded-3xl shadow-2xl overflow-hidden my-8"
         >
           {/* Header Banner */}
-          <div className="relative h-64 sm:h-80 w-full bg-gradient-to-tr from-accent-purple via-indigo-600 to-accent-cyan p-8 flex flex-col justify-end">
+          <div className="relative h-64 sm:h-80 w-full bg-gradient-to-tr from-accent-purple via-indigo-600 to-accent-cyan p-8 flex flex-col justify-end overflow-hidden">
+            {project.image && !imageBroken && (
+              <>
+                <Image
+                  src={project.image}
+                  alt={project.title}
+                  fill
+                  sizes="(max-width: 768px) 100vw, 768px"
+                  className="object-cover"
+                  priority
+                  onError={() => setImageBroken(true)}
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-black/10" />
+              </>
+            )}
             <button
               onClick={onClose}
-              className="absolute top-4 right-4 p-2 rounded-full bg-black/30 text-white hover:bg-black/60 transition-colors backdrop-blur-md"
+              className="absolute top-4 right-4 z-10 p-2 rounded-full bg-black/30 text-white hover:bg-black/60 transition-colors backdrop-blur-md"
               aria-label="Close modal"
             >
               <X className="w-5 h-5" />
             </button>
-            <span className="text-xs font-bold uppercase tracking-widest text-cyan-300 mb-2">
+            <span className="relative z-10 text-xs font-bold uppercase tracking-widest text-cyan-300 mb-2">
               {project.category}
             </span>
-            <h2 className="text-3xl sm:text-4xl font-extrabold text-white">
+            <h2 className="relative z-10 text-3xl sm:text-4xl font-extrabold text-white">
               {project.title}
             </h2>
           </div>

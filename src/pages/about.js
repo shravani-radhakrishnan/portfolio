@@ -24,7 +24,7 @@ import {
 
 const experiences = [
   {
-    role: 'Senior Developer',
+    role: 'Senior Software Developer',
     company: 'New Brunswick Community Care',
     period: 'Oct 2024 – Present',
     description: 'Architected & developed an offline-first React Progressive Web Application (PWA) for Electronic Patient Care Reports (ePCR) used by paramedics & ambulance services across New Brunswick on Toughbook tablets.',
@@ -34,67 +34,97 @@ const experiences = [
       'Built dynamic form-driven React components for Patient ID, Assessment, Treatment, Vitals, & Transfer of Care',
       'Hybrid state management using React Context API (PCR session) & Redux Toolkit for complex forms',
       'Implemented i18n support for provincial bilingual (English/French) compliance and accessibility standards',
-      'Role-based access control (RBAC) and secure authentication for Medics, Supervisors & Admins'
+      'Role-based access control (RBAC) and secure authentication for Medics, Supervisors & Admins',
+      'Leveraged GitHub Copilot and developed custom AI-assisted skills/workflows to automate code reviews and pull request (PR) creation, improving code quality, consistency, and developer productivity.',
+      'Implemented an automated regression test suite using Playwright, covering critical ePCR workflows.',
+      'Contributed to Salesforce API development by building extension Apex REST endpoints and request/response contracts to support ePCR submission and retrieval workflows.',
+      'Built the ePCR interface to WCAG 2.1 AA standards, applying semantic HTML, ARIA roles and live regions, full keyboard navigation, visible focus management, and color-contrast compliance for use in bright outdoor field conditions.'
+
     ]
   },
   {
     role: 'UI Developer',
     company: 'Verizon',
-    location: 'Irving, TX',
+    location: 'USA',
     period: 'Jun 2024 – Oct 2024',
     description: 'Developed scalable React and Angular UI components, configured complex state management, and optimized large-scale data presentation.',
     highlights: [
       'Managed application state using Redux Toolkit & React Hooks for multi-step form workflows',
       'Utilized Ag-Grid for high-performance rendering of data-intensive web applications',
       'Bundled TypeScript & JavaScript modules using Webpack, Babel, and ESLint',
-      'Integrated RESTful APIs, participating in daily Agile sprints, code reviews, and defect tracking in JIRA'
+      'Integrated RESTful APIs, participating in daily Agile sprints, code reviews, and defect tracking in JIRA',
+      'Integrated GitHub Copilot to write unit tests and improve code suggestions, reducing development time.'
     ]
   },
   {
     role: 'Front End / UI Developer',
     company: 'Paychex',
-    location: 'Rochester, NY',
+    location: 'USA',
     period: 'Jul 2022 – Jun 2024',
     description: 'Architected enterprise payroll and HR management web applications using Angular 13, React, Node.js, and RxJS.',
     highlights: [
       'Developed end-to-end SPA features with Angular 13 directives, lazy loading, and RxJS streams',
       'Reduced post-release bugs by 50% using Karma & Jasmine automated unit testing',
-      'Optimized network bandwidth & load times by implementing AJAX partial page updates and jQuery validation'
+      'Implemented modules in Java (Spring Boot) to integrate with designs and requirements.',
+      'Developed and maintained Java-based RESTful microservices using Spring Boot, supporting payroll processing, employee benefits, and client onboarding modules consumed by the Angular front end.',
+      'Implemented responsive web design and maintained larger stylesheets using Bootstrap.',
+      'Designed relational schemas and wrote optimized SQL queries and stored procedures in MySQL / SQL Server for payroll transactions, audit trails, and reporting.'
     ]
   },
   {
-    role: 'Senior Software Engineer (Contract)',
+    role: 'Senior Software Engineer',
     company: 'ACS Solutions',
     location: 'India',
     period: 'Mar 2021 – Jan 2022',
     description: 'Designed profile and analytics dashboard modules in the Precision Areas platform using React.js and Java backend services.',
     highlights: [
       'Improved application performance by 30% by optimizing code and reducing redundant API calls',
-      'Translated business wireframes into responsive React.js components leveraging Virtual DOM & hooks'
+      'Translated business wireframes into responsive React.js components leveraging Virtual DOM & hooks',
+      'Improved application performance by 30% by reducing API calls and optimizing code and also involved in API development using Java, and used RxJS operators to manage data flow and Handle HTTP requests in the UI.',
+      'Developed RESTful APIs in Java using Spring Boot for the Precision Areas profile module, exposing endpoints for user profiles, preferences, and dashboard metrics consumed by the React UI.'
+
     ]
   },
   {
     role: 'Software Engineer (Full Time)',
     company: 'Ahex Technologies Pvt Ltd',
-    location: 'Germany',
+    location: 'India',
     period: 'May 2020 – Feb 2021',
     description: 'Engineered AI cyber-intelligence risk management applications for Allianz & ELEMENT multinational clients.',
     highlights: [
       'Reduced cyber incidents by 40% through AI risk assessment & alert workflows',
+      'Implemented state management using NgRx to streamline data flow and maintain application state across multiple components.',
       'Created Java Spring Boot RESTful microservices with JWT authentication & machine learning risk algorithms',
-      'Built Angular 8 dynamic dashboards with D3.js interactive KPI visualizations and Ag-Grid tables'
+      'Successfully orchestrated a complex workflow for case management and alert management, leading a team of 12 members. ',
+      'Built Angular 8 dynamic dashboards with D3.js interactive KPI visualizations and Ag-Grid tables',
+      'System-automated tasks like CSS and HTML minification were performed using the Gulp tool, and Node packages and dependencies were managed using npm.',
     ]
   },
   {
     role: 'Software Engineer (Full Time)',
     company: 'Laalsa Business Insights Pvt Ltd',
-    location: 'Hyderabad, India',
+    location: 'India',
     period: 'Feb 2019 – May 2020',
     description: 'Built restaurant POS and hybrid mobile food ordering applications using Angular 7, Ionic, Node.js, MongoDB, and AWS.',
     highlights: [
+      'Independently developed a range of food-related and a hybrid mobile app, using Angular 7 and the Ionic platform, along with Google Maps API Integration for live tracking of food delivery.',
       'Integrated Socket.IO for real-time order status synchronization between POS and mobile delivery app',
       'Engineered backend REST APIs with Express & Node.js, storing food imagery on Amazon S3',
+      'Experience in building websites that adhere to mobile-first functionality using Bootstrap and CSS Media Queries.',
       'Architected scalable, fault-tolerant infrastructure using AWS services and Google Maps API integration'
+    ]
+  },
+  {
+    role: 'Software Engineer (Full Time)',
+    company: 'Primebit solutions Pvt Ltd',
+    location: 'India',
+    period: 'Jun 2016 – Feb 2019',
+    description: 'Built website for educational institution.SMO & SEO optimized website content, meta tags, and other on-page elements to improve search engine rankings within a short span of time.',
+    highlights: [
+     'Demonstrated track record in developing 2 enterprise-grade websites and web applications characterized by pixel-perfect design and seamless responsiveness utilizing HTML, JavaScript, CSS, and Bootstrap.',
+     'Built server-side contact and enquiry form handling in Java using Servlets / Spring MVC, with server-side validation and JavaMail-based email notifications.',
+     'Built and consumed REST APIs in Java returning JSON responses, connecting website front ends with internal data services.',
+     'Designed and edited digital assets for projects using Adobe Creative Suite and Canva.'
     ]
   }
 ];
@@ -222,7 +252,7 @@ export default function About() {
               </div>
               <div>
                 <span className="text-xs font-semibold text-accent-purple dark:text-accent-cyan uppercase">Location</span>
-                <p className="font-bold text-gray-900 dark:text-white text-base">Dallas, TX</p>
+                <p className="font-bold text-gray-900 dark:text-white text-base">USA</p>
               </div>
               <div>
                 <span className="text-xs font-semibold text-accent-purple dark:text-accent-cyan uppercase">Core Specialization</span>

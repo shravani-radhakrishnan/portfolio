@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Head from 'next/head';
+import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
 import Layout from '@/components/Layout';
 import AnimatedText from '@/components/AnimatedText';
@@ -7,6 +8,24 @@ import ProjectModal from '@/components/ProjectModal';
 import { ExternalLink, Github, Filter } from 'lucide-react';
 
 const showcaseProjects = [
+  {
+    id: 'shravani-nextjs-portfolio',
+    title: 'Next.js Developer Portfolio',
+    subtitle: 'Personal Portfolio Built with Next.js & Tailwind CSS',
+    category: 'React & Styling',
+    description: 'My personal developer portfolio built with Next.js, showcasing my work experience, skills, and featured client projects with smooth animations.',
+    fullDescription: 'A modern, responsive personal portfolio built with Next.js and Tailwind CSS, featuring animated transitions with Framer Motion, dark/light theme support, and a dedicated project showcase with filterable categories and detailed project modals.',
+    tags: ['Next.js', 'React', 'Tailwind CSS', 'Framer Motion', 'Netlify'],
+    features: [
+      'Server-rendered Next.js pages for fast load times',
+      'Framer Motion animations & smooth page transitions',
+      'Dark/light theme toggle with responsive layout',
+      'Filterable project showcase with detailed modal views'
+    ],
+    image: '/images/projects/nextjsportfolio.png',
+    liveUrl: 'https://shravaniradhakrishna.netlify.app/projects',
+    githubUrl: 'https://github.com/shravani-radhakrishnan'
+  },
   {
     id: 'love-lens-capture',
     title: 'Love Lens Capture',
@@ -21,6 +40,7 @@ const showcaseProjects = [
       'Fluid page transitions & smooth scrolling',
       'Deployed on Netlify with zero build latency'
     ],
+    image: '/images/projects/lovelenscapture.png',
     liveUrl: 'https://lovelenscapture.netlify.app/',
     githubUrl: 'https://github.com/shravani-radhakrishnan'
   },
@@ -31,13 +51,14 @@ const showcaseProjects = [
     category: 'Vite & React',
     description: 'A fun, fast decision-making web app that helps you pick what to eat, what movie to watch, or what to do next without overthinking.',
     fullDescription: 'Yep! eliminates indecision by providing instant, fun recommendations. Whether you cannot decide what food to order right now, which movie to stream tonight, or how to spend your evening, Yep! gives you a quick, effortless answer.',
-    tags: ['React', 'Vite', 'JavaScript', 'Tailwind CSS', 'Netlify'],
+    tags: ['React','ios', 'Vite', 'JavaScript', 'Tailwind CSS', 'Netlify','Firebase'],
     features: [
       'Instant decision algorithm for food, movies & activities',
       'Vite-powered ultra-fast frontend build engine',
       'Fun, high-energy interactive user interface',
       'Mobile-first responsive UI built with Tailwind CSS'
     ],
+    image: '/images/projects/yep.png',
     liveUrl: 'https://yepapp.netlify.app/',
     githubUrl: 'https://github.com/shravani-radhakrishnan'
   },
@@ -45,15 +66,16 @@ const showcaseProjects = [
     id: 'shravani-portfolio',
     title: 'Manduva Sravani Personal Portfolio',
     subtitle: 'Modern Web Developer Portfolio',
-    category: 'React & Styling',
+    category: 'Angular & Styling',
     description: 'Personal web developer portfolio showcasing frontend achievements, interactive project showcases, and personal brand identity.',
-    fullDescription: 'A clean, dark/light theme web developer portfolio built with React and custom styling. Designed to highlight technical skills, client projects, and software engineering capabilities.',
-    tags: ['React', 'CSS3', 'JavaScript', 'Netlify', 'UX Design'],
+    fullDescription: 'A clean, dark/light theme web developer portfolio built with Angular and custom styling. Designed to highlight technical skills, client projects, and software engineering capabilities.',
+    tags: ['Angular', 'CSS3', 'JavaScript', 'Netlify', 'UX Design'],
     features: [
       'Interactive theme & smooth section scrolling',
       'Custom project showcase cards & modal views',
       'Clean contact form & social link integration'
     ],
+    image: '/images/projects/angularportfolio.png',
     liveUrl: 'https://manduvasravani.netlify.app/',
     githubUrl: 'https://github.com/shravani-radhakrishnan'
   },
@@ -71,6 +93,7 @@ const showcaseProjects = [
       'Mobile-first responsive corporate UI',
       'SEO optimized meta tags & fast loading'
     ],
+    image: '/images/projects/manoj-uppuluri-ca.png',
     liveUrl: 'https://lovelenscapture.netlify.app/',
     githubUrl: 'https://github.com/shravani-radhakrishnan'
   },
@@ -88,6 +111,7 @@ const showcaseProjects = [
       'Cross-platform mobile UI (iOS & Android compatible)',
       'Open-source repository on GitHub'
     ],
+    image: '/images/projects/weather.png',
     liveUrl: 'https://github.com/shravani-radhakrishnan/weather',
     githubUrl: 'https://github.com/shravani-radhakrishnan/weather'
   }
@@ -98,6 +122,11 @@ const categories = ['All', 'React & Styling', 'Vite & React', 'Corporate Web App
 export default function Projects() {
   const [activeCategory, setActiveCategory] = useState('All');
   const [selectedProject, setSelectedProject] = useState(null);
+  const [brokenImages, setBrokenImages] = useState(new Set());
+
+  const markImageBroken = (id) => {
+    setBrokenImages((prev) => new Set(prev).add(id));
+  };
 
   const filteredProjects = activeCategory === 'All' 
     ? showcaseProjects 
@@ -162,8 +191,21 @@ export default function Projects() {
                   exit={{ opacity: 0, scale: 0.9 }}
                   transition={{ duration: 0.3 }}
                   onClick={() => setSelectedProject(project)}
-                  className="glass-card rounded-3xl p-6 flex flex-col justify-between cursor-pointer group hover:border-accent-purple/50 dark:hover:border-accent-cyan/50 transition-all hover:shadow-2xl"
+                  className="glass-card rounded-3xl overflow-hidden flex flex-col justify-between cursor-pointer group hover:border-accent-purple/50 dark:hover:border-accent-cyan/50 transition-all hover:shadow-2xl"
                 >
+                  <div className="relative w-full h-44 overflow-hidden bg-gradient-to-tr from-accent-purple via-indigo-600 to-accent-cyan">
+                    {project.image && !brokenImages.has(project.id) && (
+                      <Image
+                        src={project.image}
+                        alt={project.title}
+                        fill
+                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                        className="object-cover group-hover:scale-105 transition-transform duration-300"
+                        onError={() => markImageBroken(project.id)}
+                      />
+                    )}
+                  </div>
+                  <div className="p-6 flex flex-col justify-between flex-1">
                   <div>
                     <div className="flex items-center justify-between mb-3">
                       <span className="px-3 py-1 text-xs font-semibold rounded-full bg-accent-purple/10 text-accent-purple dark:text-accent-cyan">
@@ -205,6 +247,7 @@ export default function Projects() {
                     <div className="text-xs font-semibold text-accent-purple dark:text-accent-cyan flex items-center gap-1 group-hover:translate-x-1 transition-transform">
                       Explore Project Details →
                     </div>
+                  </div>
                   </div>
                 </motion.div>
               ))}

@@ -27,6 +27,7 @@ export default function Contact() {
 
   const email = 'shravanimanduva513@gmail.com';
   const phone = '972-677-8015';
+  const recipientEmail = 'manduvasravani@gmail.com';
 
 
   const handleCopyEmail = () => {
@@ -37,6 +38,11 @@ export default function Contact() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    const body = `Name: ${formData.name}\nEmail: ${formData.email}\n\n${formData.message}`;
+    const mailtoLink = `mailto:${recipientEmail}?subject=${encodeURIComponent(formData.subject)}&body=${encodeURIComponent(body)}`;
+    window.location.href = mailtoLink;
+
     setSubmitted(true);
     setTimeout(() => {
       setSubmitted(false);
