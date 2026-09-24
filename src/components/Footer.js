@@ -14,11 +14,11 @@ const Footer = () => {
         {/* Left info */}
         <div className="flex flex-col items-center md:items-start text-center md:text-left">
           <p className="text-sm font-medium text-gray-600 dark:text-zinc-400">
-            © {new Date().getFullYear()} Shravani Manduva. Senior Software Developer.
+            © {new Date().getFullYear()} Shravani Manduva.
           </p>
-          <p className="text-xs text-gray-400 dark:text-zinc-500 mt-1">
+          {/* <p className="text-xs text-gray-400 dark:text-zinc-500 mt-1">
             M.S. in Computer Science (Texas Tech University) • 9+ Years Professional Experience
-          </p>
+          </p> */}
         </div>
 
         {/* Social Links & Back to Top */}
